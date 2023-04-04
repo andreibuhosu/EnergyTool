@@ -1,19 +1,19 @@
 # EnergyTool
 
-##iGSE – An Energy Tool is a web app (iGSE) for energy company GSE to solve an energy crisis in the Valley of
+## iGSE – An Energy Tool is a web app (iGSE) for energy company GSE to solve an energy crisis in the Valley of
 Shangri-La. The app will allow residents to submit meter readings, view bills, pay using energy vouchers and
 access energy consumption data. It will have 2 types of accounts: customer and GSE admin. The system
 handles and displays error messages.
 
-##Programming Languages: 
+## Programming Languages: 
 * Java 
 * MySQL
 
-##Markup Languages: 
+## Markup Languages: 
 * HTML  
 * CSS
 
-##Features: 
+## Features: 
 * Register and login  
 * Two types of users 
 * Customer can submit meter readings
@@ -23,12 +23,12 @@ handles and displays error messages.
 * Admin can view all the meter readings 
 * Admin can view statistics of the meter readings
 
-##Prerequisites: 
+## Prerequisites: 
 * Spring Boot Framework 2.7.4 
 * MySQL Server 8.0.31 
 * Maven 3.8.1
 
-##Dependencies: 
+## Dependencies: 
 * Spring Security 
 * Spring JPA 
 * Spring Starter Web 
