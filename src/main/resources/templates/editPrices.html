@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link href="/css/style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<nav class="nav nav-pills flex-column flex-sm-row">
+  <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="/indexAdmin">Home</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" href="/prices">Prices</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/MeterReadings">Meter Readings</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/energyStatistics">Energy Statistics</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/logout">Logout</a>
+</nav>
+<body>
+
+<div sec:authorize="isAuthenticated()">
+  <p style="font-size: 30px ;font-family: 'Academy Engraved LET' ;color: #11caf0; text-align: center">Welcome <span sec:authentication="name"  style="font-size: 30px ;font-family: 'Academy Engraved LET' ;color: #11caf0; text-align: center" >Username</span>
+
+    <span sec:authentication="principal.authorities" style="font-size: 30px ;font-family: 'Academy Engraved LET' ; text-align: center ;color: #ff9904">Roles</span> </p>
+  &nbsp;
+
+</div><br>
+<div class="d-flex justify-content-center">
+
+<form action="#" th:action="@{/savePR}" th:object="${prices}" method="post">
+  <tr>
+    <div class="input-group mb-3">
+    <span class="input-group-text">Electricity Day Price</span>
+    <span class="input-group-text">£</span>
+    <td>
+      <input type="hidden" th:field="*{id}" />
+      <input type="number"  step="0.01" th:field="*{electricityPriceDay}" placeholder="Electricity Day Price"/>
+    </td>
+    </div>
+  </tr><br>
+  <tr>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Electricity Night Price</span>
+      <span class="input-group-text">£</span>
+    <td>
+      <input type="number" step="0.01"  th:field="*{electricityPriceNight}" placeholder="Electricity Night Price"/>
+    </td>
+    </div>
+  </tr><br>
+
+  <tr>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Gas Price</span>
+      <span class="input-group-text">£</span>
+    <td>
+      <input type="number" step="0.01"  th:field="*{gasPrice}" placeholder="Gas Price"/>
+    </td>
+    </div>
+  </tr><br>
+  <tr>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Standing Charge Price</span>
+      <span class="input-group-text">£</span>
+    <td>
+      <input type="number" step="0.01"  th:field="*{standingCharge}" placeholder="Standing Charge"/>
+    </td>
+    </div>
+  </tr><br>
+
+  <br>
+  <tr>
+    <div class="d-flex justify-content-center">
+    <td colspan="2"><button  class="btn btn-info btn-lg btn-block" style="font-size: 15px; color: white" type="submit">Update</button> </td>
+    </div>
+  </tr>
+
+
+</form>
+</div>
+</body>
+</html>

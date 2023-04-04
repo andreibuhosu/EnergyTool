@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link href="/css/style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="your_javascript_file.js"></script>
+<script type="text/javascript" th:src="@{/js/JavaScript.js}"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+    <p style="font-size: 80px ;font-family: 'Academy Engraved LET' ;color: #11caf0; text-align: center">Register here</p>
+    <div class="d-flex justify-content-center">
+    <form th:action="@{/register}" th:object="${user}" method="post">
+
+
+<!--        //Model attribute // validators-->
+        <div style="text-align: center;font-size: 20px ;font-family: 'Academy Engraved LET' ;color: red; text-align: center" th:if="${emptyUser}" th:text="${emptyUser}"/>
+
+        <div style="text-align: center;font-size: 20px ;font-family: 'Academy Engraved LET' ;color: red; text-align: center" th:if="${errorTaken}" th:text="${errorTaken}"/>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{username}"  id="username"  name="username"><br />
+        <br/>
+        </div>
+
+        <div style="text-align: center;font-size: 20px ;font-family: 'Academy Engraved LET' ;color: red; text-align: center" th:if="${emptyPassword}" th:text="${emptyPassword}"/>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGrroup-sizing-default">Password</span>
+        <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{password}" /><br />
+        </div>
+
+        <div style="text-align: center;font-size: 20px ;font-family: 'Academy Engraved LET' ;color: red; text-align: center" th:if="${emptyAddress}" th:text="${emptyAddress}"/>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGrrroup-sizing-default">Address</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{address}" /><br />
+
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Property Type:</label>
+            <select class="form-select" id="inputGroupSelect01" th:field="*{propertyType}">
+            <option value="Detached">detached</option>
+            <option value="Semi-Detached">semi-detached</option>
+            <option value="Terraced">terraced</option>
+            <option value="Flat">flat</option>
+            <option value="Cottage">cottage</option>
+            <option value="Bungalow">bungalow</option>
+            <option value="Mansion">mansion</option>
+            </select></div><br />
+
+        <div style="text-align: center;font-size: 20px ;font-family: 'Academy Engraved LET' ;color: red; text-align: center" th:if="${emptyNumberOfBedrooms}" th:text="${emptyNumberOfBedrooms}"/>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGrp-sizing-default">Number of bedrooms</span>
+        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{numberOfBedrooms}" /><br />
+        </div>
+
+
+
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-info btn-lg btn-block" style="color: white">Register</button>
+<!--        </div>-->
+<!--        <div class="d-flex justify-content-center">-->
+            <a th:href="@{/login.html}" class="btn btn-info btn-lg btn-block" style="color: white">Have an account?</a>
+        </div>
+    </form>
+    </div>
+
+
+
+
+</body>
+</html>
